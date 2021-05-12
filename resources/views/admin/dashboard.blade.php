@@ -1,6 +1,9 @@
 @extends('admin_layout')
 @section('admin_content')
-<div class="Container-fluit">
+<!-- <div class="Container-fluit"> -->
+   
+
+    <div class="row" >
     <style type="text/css">
         p.title_thongke {
             
@@ -10,9 +13,8 @@
         }
 
     </style>
-
-    <div class="row">
         <p class="title_thongke">Thống kê đơn hàng theo doanh số</p>
+        <br>
         <form autocomplete="off">
             @csrf
             <div class="col-md-2">
@@ -41,17 +43,18 @@
 					</select>
 				</p>
 			</div>
+          
         </form>
-
-        <div class="col-sm-12">
-            <div id="chart" style="heght: 250px;"></div>
+        
+        <div class="col-sm-12" >
+            <div id="chart" style="heght: 250px; margin-top: 30px;" ></div>
         </div>
     </div>
 
    
 
 
-</div>
+<!-- </div> -->
 
 
 

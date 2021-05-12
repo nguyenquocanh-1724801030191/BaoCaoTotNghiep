@@ -79,7 +79,6 @@
                     <div class="col-sm-8">
                         <div class="shop-menu pull-right">
                             <ul class="nav navbar-nav">
-                                <!-- <li><a href="#"><i class="fa fa-star"></i> Yêu thích</a></li> -->
 
                                 <?php
                                    $customer_id = Session::get('customer_id');
@@ -87,29 +86,28 @@
                                    if($customer_id!=NULL && $shipping_id==NULL){ 
                                 ?>
 
-                                <li><a href="{{URL::to('/checkout')}}"><i class="fa fa-crosshairs"></i> Thanh toán</a>
+                                <li><a href="{{URL::to('/checkout')}}"><i class="fa fa-crosshairs"></i>{{ trans('home.payment')}} </a>
                                 </li>
 
                                 <?php
                                  }elseif($customer_id!=NULL && $shipping_id!=NULL){
                                 ?>
 
-                                <li><a href="{{URL::to('/payment')}}"><i class="fa fa-crosshairs"></i> Thanh toán</a>
+                                <li><a href="{{URL::to('/payment')}}"><i class="fa fa-crosshairs"></i> {{ trans('home.payment')}}</a>
                                 </li>
 
                                 <?php 
                                 }else{
                                 ?>
 
-                                <li><a href="{{URL::to('/login-checkout')}}"><i class="fa fa-crosshairs"></i> Thanh
-                                        toán</a></li>
+                                <li><a href="{{URL::to('/login-checkout')}}"><i class="fa fa-crosshairs"></i> {{ trans('home.payment')}}</a></li>
 
                                 <?php
                                  }
                                 ?>
 
 
-                                <li><a href="{{URL::to('/gio-hang')}}"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a>
+                                <li><a href="{{URL::to('/gio-hang')}}"><i class="fa fa-shopping-cart"></i> {{ trans('home.cart')}}</a>
                                 </li>
 
                                 <?php
@@ -117,14 +115,14 @@
                                    if($customer_id!=NULL){ 
 								?>
 
-                                <li><a href="{{URL::to('/logout-checkout')}}"><i class="fa fa-lock"></i> Đăng xuất</a>
+                                <li><a href="{{URL::to('/logout-checkout')}}"><i class="fa fa-lock"></i> {{ trans('home.logout')}}</a>
                                 </li>
 
                                 <?php
                             	}else{
 								?>
 
-                                <li><a href="{{URL::to('/login-checkout')}}"><i class="fa fa-lock"></i> Đăng nhập</a>
+                                <li><a href="{{URL::to('/login-checkout')}}"><i class="fa fa-lock"></i> {{ trans('home.login')}}</a>
                                 </li>
 
                                 <?php 
@@ -159,19 +157,28 @@
                         </div>
                         <div class="mainmenu pull-left">
                             <ul class="nav navbar-nav collapse navbar-collapse">
-                                <li><a href="{{URL::to('/trang-chu')}}" >Trang chủ</a></li>
-                                <li class="dropdown"><a href="{{URL::to('/trang-chu')}}">Sản phẩm<i class="fa fa-angle-down"></i></a>
+                                <li><a href="{{URL::to('/trang-chu')}}" >{{ trans('home.home')}}</a></li>
+                                <li class="dropdown"><a href="{{URL::to('/trang-chu')}}">{{ trans('home.product')}}<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         @foreach($category as $key => $cate)                        
                                         <li> 
-                                            <a href="{{URL::to('/danh-muc-san-pham/'.$cate->category_id)}}">{{$cate->category_name}}</a>
+                                            <!-- <a href="{{URL::to('/danh-muc-san-pham/'.$cate->category_id)}}">{{$cate->category_name}}</a> -->
+                                            <a href="{{URL::to('/danh-muc-san-pham/'.$cate->category_id)}}">
+                                                @if(config('app.locale') != 'vi') 
+                                                    {{$cate->category_name_en}}
+                                                @else
+                                                    {{$cate->category_name}}
+                                                @endif
+                                            </a>
+
                                         </li>   
                                         @endforeach
                                     
                                     </ul>
                                 </li>
 
-                                <li><a href="{{URL::to('/lien-he')}}">Liên hệ</a></li>
+                                <li><a href="{{URL::to('/lien-he')}}">{{ trans('home.contact')}}</a></li>
+                                <li><a href="{{URL::to('/tinh-size')}}">{{ trans('home.tinhsize')}}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -182,7 +189,7 @@
                                 <div class="input-group">
                                     <input type="text"  name="keywords_submit" class="input-sm form-control" placeholder="Search">
                                     <span class="input-group-btn">
-                                        <button class="btn btn-sm btn-default" name="search_item" type="submit" style="margin-top:0;background: #fe980f">Go!</button>
+                                        <button class="btn btn-sm btn-default" name="search_item" type="submit" style="margin-top:0;background: #fe980f">{{ trans('home.search')}}</button>
                                     </span> 
                                 </div>
                             </div>
@@ -250,25 +257,32 @@
             <div class="row">
                 <div class="col-sm-3">
                     <div class="left-sidebar">
-                        <h2>Danh mục sản phẩm</h2>
+                        <h2>{{ trans('home.danhmucsanpham')}}</h2>
                         <div class="panel-group category-products" id="accordian">
                             <!--category-productsr-->
                             @foreach($category as $key => $cate)
 
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title"><a
-                                            href="{{URL::to('/danh-muc-san-pham/'.$cate->category_id)}}">{{$cate->category_name}}</a>
+                                    <h4 class="panel-title">
+                                        <a
+                                            href="{{URL::to('/danh-muc-san-pham/'.$cate->category_id)}}">
+                                                @if(config('app.locale') != 'vi') 
+                                                    {{$cate->category_name_en}}
+                                                @else
+                                                    {{$cate->category_name}}
+                                                @endif
+                                        </a>
                                     </h4>
                                 </div>
                             </div>
                             @endforeach
                         </div>
                         <!--/category-products-->
-
+                        
                         <div class="brands_products">
                             <!--brands_products-->
-                            <h2>Thương hiệu sản phẩm</h2>
+                            <h2>{{ trans('home.thuonghieusanpham')}}</h2>
                             <div class="brands-name">
                                 <ul class="nav nav-pills nav-stacked">
                                     @foreach($brand as $key => $brand)
@@ -466,6 +480,44 @@
     <script src="{{asset('public/frontend/js/jquery.scrollUp.min.js')}}"></script>
     <script src="{{asset('public/frontend/js/jquery.prettyPhoto.js')}}"></script>
     
+
+    <div class="zalo-chat-widget" data-oaid="2455180178757237530" data-welcome-message="Rất vui khi được hỗ trợ bạn!" data-autopopup="0" data-width="350" data-height="420"></div>
+
+    <script src="https://sp.zalo.me/plugins/sdk.js"></script>
+    <!-- //Zalo -->
+        <div id="fb-root"></div>
+        <script>
+            window.fbAsyncInit = function() {
+            FB.init({
+                xfbml            : true,
+                version          : 'v9.0'
+            });
+            };
+
+            (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = '0346311464';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+        </script>
+
+        <div class="fb-customerchat"
+            attribution=setup_tool
+            page_id="100332251915013"
+        theme_color="#0A7CFF"
+        logged_in_greeting="Chào bạn,shop có thể giúp gì được cho bạn?"
+        logged_out_greeting="Chào bạn,shop có thể giúp gì được cho bạn?">
+        </div>
+
+        <!-- endchatzalo -->
+
+
+
+
+
+
     <script type="text/javascript">
     $(document).ready(function() {
         $('.add-to-cart').click(function() {
@@ -476,9 +528,8 @@
             var cart_product_image = $('.cart_product_image_' + id).val();
             var cart_product_price = $('.cart_product_price_' + id).val();
             var cart_product_qty = $('.cart_product_qty_' + id).val();
-            var cart_product_size = $('.cart_product_size_' + id).val();
             var _token = $('input[name="_token"]').val();
-            // alert(cart_product_price);
+            // alert(cart_product_size);
             $.ajax({
                 url: '{{url('/add-cart-ajax')}}',
                 method: 'POST',
@@ -488,7 +539,6 @@
                     cart_product_image: cart_product_image,
                     cart_product_price: cart_product_price,
                     cart_product_qty: cart_product_qty,
-                    cart_product_size: cart_product_size,
                     _token: _token
                 },
                 success: function(data) {

@@ -21,12 +21,13 @@
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Tên thương hiệu</label>
                                     <input type="text" name='brand_product_name' class="form-control" id="exampleInputEmail1"
-                                     placeholder="Tên danh mục">
+                                     placeholder="Tên thương hiệu">
                                 </div>
+                                
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Mô tả thương hiệu</label>
                                     <textarea style="resize: none" rows= "7" class="form-control" name='brand_product_desc' id="exampleInputPassword1" 
-                                    placeholder="Mô tả danh mục"></textarea>
+                                    placeholder="Mô tả thương hiệu"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputFile">Hiển thị</label>
@@ -37,7 +38,7 @@
                                     </select>
                                 </div>
                                 
-                                <button type="submit" name ="add_brand_product" class="btn btn-info">Thêm thương hiệu/button>
+                                <button type="submit" name ="add_brand_product" class="btn btn-info">Thêm thương hiệu</button>
                             </form>
                             </div>
 
@@ -45,4 +46,5 @@
                     </section>
 
             </div>
+</div>
 @endsection

@@ -4,7 +4,7 @@
     {{-- <div class="container"> --}}
     <div class="breadcrumbs">
         <ol class="breadcrumb">
-            <li><a href="{{URL::to('/')}}">Home</a></li>
+            <!-- <li><a href="{{URL::to('/')}}">Home</a></li> -->
             <li class="active">Thanh toán giỏ hàng </li>
         </ol>
     </div>
@@ -51,7 +51,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <input type="button" value="Đặt hàng" name="send_order" class="btn btn-primary btn-sm send_order">
+                            <input type="button" value=" Xác nhận đặt hàng" name="send_order" class="btn btn-primary btn-sm send_order">
                 
 
                         </form>
@@ -151,7 +151,7 @@
                                         </div>
 
                                     </td>
-                                    <td class="cart_total" style="font-size:18px; color:red">
+                                    <td class="cart_total" style="font-size:18px; color:#fe980f">
                                         {{number_format($subtotal,0,',','.')}} VND
                                     </td>
                                     <td class="cart_delete">

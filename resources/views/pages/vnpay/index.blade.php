@@ -19,16 +19,16 @@
 
         <div class="container">
             <div class="header clearfix">
-                <h3 class="text-muted">THANH TOÁN </h3>
+                <center><h3 class="text-muted"  style="color: blue"><b>THANH TOÁN </b></h3></center>
             </div>
-            <h3>Tạo mới đơn hàng</h3>
+            <h3>Chi tiết thanh toán</h3>
             <div class="table-responsive">
                 <form action="{{URL::to('/thanhtoan-onlines')}}" id="create_form" method="POST">       
                 {{ csrf_field() }}
                     <div class="form-group">
-                        <label for="language">Loại hàng hóa </label>
+                        <label for="language">Loại hóa đơn </label>
                         <select name="order_type" id="order_type" class="form-control">
-                            <option value="topup">Nạp tiền điện thoại</option>
+                            <!-- <option value="topup">Nạp tiền điện thoại</option> -->
                             <option value="billpayment">Thanh toán hóa đơn</option>
                             <option value="fashion">Thời trang</option>
                             <option value="other">Khác - Xem thêm tại VNPAY</option>

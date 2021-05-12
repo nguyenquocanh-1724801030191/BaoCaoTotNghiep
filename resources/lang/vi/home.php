@@ -4,10 +4,11 @@ return  [
     'ngonngu'=> 'Ngôn ngữ',
     'payment' => 'Thanh toán',
     'login' => 'Đăng nhập',
+    'logout' => 'Đăng xuất',
     'cart' => 'Giỏ hàng',
     'product' => 'Sản phẩm',
     'contact' => 'Liên hệ',
-    'search' => 'Tìm kiếm',
+    'search' => 'Tìm',
     'danhmucsanpham' => 'Danh mục sản phẩm',
     'thuonghieusanpham' => 'Thương hiệu sản phẩm',
     'themgiohang' => 'Thêm giỏ hàng',
@@ -21,8 +22,31 @@ return  [
     'chitietsp' => 'CHI TIẾT SẢN PHẨM',
     'danhgia' => 'ĐÁNH GIÁ',
     'sanphamlienquan' => 'Sản phẩm liên quan',
-    'giohangcuaban' => 'Giỏ hàng của bạn'
+    'giohangcuaban' => 'Giỏ hàng của bạn',
+    'sanphammoi' => 'Sản phẩm mới',
+    'hinhanh' =>'Hình ảnh',
+    'gia' => 'Giá',
+    'tongtien' => 'Tổng tiền',
+    'xoa' => 'Xóa',
+    'xoatatca' =>'Xóa tất cả',
+    'dathang' => 'Đặt hàng',
+    'xoagiamgia' => 'Xóa giảm giá',
+    'giamgia' =>'Giảm giá',
+    'tonggiam' =>'Tổng giảm',
+    'tongtiendonhang' => 'Tổng tiền đơn hàng',
+    'giohangtrong' => 'Giỏ hàng của bạn đang trống. Vui lòng thêm sản phẩm vào giỏ hàng',
+    'tinhmagiamgia' =>'Tính mã giảm giá',
+    'capnhatgiohang' =>'Cập nhật giỏ hàng',
+    'nhapmagiamgia' =>'Nhập mã giảm giá',
+    'dangnhaptaikhoan' =>'Đăng nhập tài khoản',
+    'or' =>'Hoặc',
+    'dangki' =>'Đăng kí',
+    'conhang' =>'Còn hàng',
+    'moi' =>'Mới 100%',
+    'chonsizephuhop' =>'Chọn size phù hợp',
+    'tinhsize' =>'Tính kích cỡ giày'
     
+
 ];
 
 ?>

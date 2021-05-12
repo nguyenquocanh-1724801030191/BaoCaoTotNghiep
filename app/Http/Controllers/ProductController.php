@@ -44,7 +44,6 @@ class ProductController extends Controller
         $data['product_price'] = $request->product_price;
         $data['price_cost'] = $request->price_cost;
         $data['product_quantity'] = $request->product_quantity;
-        $data['product_size'] = $request->product_size;
         $data['product_desc'] = $request->product_desc;
         $data['product_content'] = $request->product_content;
         $data['category_id'] = $request->product_cate;
@@ -138,16 +137,11 @@ class ProductController extends Controller
         ->join('tbl_brand','tbl_brand.brand_id','=','tbl_product.brand_id')
         ->where('tbl_product.product_id',$product_id)->get();
 
-        // $size = $product->product_size;
-        // $product_size= explode(',',$size);
-        // foreach($myArray as $my_Array){
-        //     echo $my_Array.'<br>';
-        // }
-
         $slider = Slider::orderBy('slider_id','DESC')->where('slider_status','0')->take(4)->get();
         foreach($details_product as $key => $value){
         $category_id = $value->category_id;
-       
+        // $sizes = $value->product_size;
+        // $sizes= explode(',',$sizes);
         }
 
         $related_product = DB::table('tbl_product')

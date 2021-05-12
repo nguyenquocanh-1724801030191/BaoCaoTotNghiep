@@ -22,22 +22,28 @@
                             <a href="{{URL::to('/chi-tiet-san-pham/'.$product->product_id)}}">
                                 <img src="{{URL::to('public/uploads/product/'.$product->product_image)}}" alt="" />
                                 <h2>{{number_format($product->product_price).' '.'VND'}}</h2>
-                                <p>{{$product->product_name}}</p>
+                                <p>
+                                    @if(config('app.locale') != 'vi') 
+                                        {{$product->product_name_en}}
+                                    @else
+                                        {{$product->product_name}}
+                                    @endif
+                                </p>
 
                             </a>
 
                             <!-- <button type="button" class="btn btn-default add-to-cart" data-id_product="{{$product->product_id}}" name="add-to-cart">Thêm vào giỏ hàng</button> -->
-                            <input type="button" value="Thêm giỏ hàng" class="btn btn-default add-to-cart" data-id_product="{{$product->product_id}}" name="add-to-cart">
+                            <input type="button" value="{{ trans('home.themgiohang')}}" class="btn btn-default add-to-cart" data-id_product="{{$product->product_id}}" name="add-to-cart">
                         </form>
                     </div>
 
                 </div>
-                <div class="choose">
+                <!-- <div class="choose">
                     <ul class="nav nav-pills nav-justified">
                         <li><a href="#"><i class="fa fa-plus-square"></i>Yêu thích</a></li>
                         <li><a href="#"><i class="fa fa-plus-square"></i>So sánh</a></li>
                     </ul>
-                </div>
+                </div> -->
             </div>
         </div>
     </a>

@@ -9,10 +9,10 @@
                         <?php
                             $message = Session::get('message');
                             if($message){
-                                echo '<span class="text-success" >'.$message.'<span>';
+                                echo '<span class="text-alert">'.$message.'</span>';
                                 Session::put('message',null);
                             }
-                        ?>
+                            ?>
                         <div class="panel-body">
                     
                             <div class="position-center">
@@ -42,10 +42,14 @@
                                     <label for="exampleInputEmail1">Hình ảnh sản phẩm</label>
                                     <input type="file" name="product_image" class="form-control" id="exampleInputEmail1">
                                 </div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label for="exampleInputEmail1">Kích cỡ sản phẩm</label>
                                     <input type="text" data-role="tagsinput" data-validation-error-msg="Làm ơn điền kích cỡ" name="product_size" class="form-control" id="exampleInputEmail1" placeholder="Điền số size">
-                                </div>
+                                </div> -->
+                                <!-- <div class="form-group">
+                                    <label for="exampleInputPassword1">Kích cỡ sản phẩm</label>
+                                    <textarea type="text" data-validation="number"  data-validation-error-msg="Làm ơn điền kích cỡ" name="product_size" class="form-control" id="exampleInputEmail1" placeholder="Điền số size"></textarea>
+                                </div> -->
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Số lượng sản phẩm</label>
                                     <input type="text" data-validation="number" data-validation-error-msg="Làm ơn điền số lượng" name="product_quantity" class="form-control" id="exampleInputEmail1" placeholder="Điền số lượng">

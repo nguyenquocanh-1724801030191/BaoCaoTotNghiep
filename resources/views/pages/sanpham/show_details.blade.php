@@ -15,44 +15,61 @@
         <div class="product-information">
             <!--/product-information-->
             <img src="images/product-details/new.jpg" class="newarrival" alt="" />
-            <h2>Tên sản phẩm: {{$value->product_name}}</h2>   
+            <h2>{{ trans('home.tensanpham')}}:
+            @if(config('app.locale') != 'vi') 
+                {{$value->product_name_en}}
+            @else
+                {{$value->product_name}}
+            @endif
+            </h2>   
             <form action="{{URL::to('/save-cart')}}" method="POST">
                 @csrf
+                   
+
                 <input type="hidden" value="{{$value->product_id}}" class="cart_product_id_{{$value->product_id}}">
                 <input type="hidden" value="{{$value->product_name}}" class="cart_product_name_{{$value->product_id}}">
                 <input type="hidden" value="{{$value->product_image}}" class="cart_product_image_{{$value->product_id}}">
                 <input type="hidden" value="{{$value->product_price}}" class="cart_product_price_{{$value->product_id}}">
-               
                 <span>
                     <span>{{number_format($value->product_price,0,',','.').' VNĐ'}}</span>
 
-                    <label>Số lượng:</label>
+                    <label>{{ trans('home.soluong')}}:</label>
                     <input name="qty" type="number" min="1" class="cart_product_qty_{{$value->product_id}}" value="1" />
                     <input name="productid_hidden" type="hidden" value="{{$value->product_id}}" />
+                    <br>
+                    
+                    
                 </span>
+                <!-- @if($value->product_size == NULL)
+                @else
                 <span>
                     <label>Size</label>
                     <select>
                     @php
                         $sizes = $value->product_size;
-                        $sizes = explode(",",$sizes); 
+                        $product_size = explode(",",$sizes); 
                     @endphp
-
-                    @foreach($sizes as $size){
-                        <option value ="{{$size}}" class="cart_product_size_{{$value->product_id}}">{{$size}}</option>
-                        
+                    @foreach($product_size as $size){
+                        <option value ="{{$sizes}}">{{$sizes}}</option>
+                       
                         }
                     @endforeach
                     </select>
                 </span>
-               
-                <input type="button" value="Thêm giỏ hàng" class="btn btn-primary btn-sm add-to-cart" data-id_product="{{$value->product_id}}" name="add-to-cart">
+                @endif -->
+                <input type="button" value="{{ trans('home.themgiohang')}}" class="btn btn-primary btn-sm add-to-cart" data-id_product="{{$value->product_id}}" name="add-to-cart">
                 
             </form>
-            <p><b>Tình trạng:</b> Còn hàng</p>
-            <p><b>Điều kiện:</b> Mới 100% </p>
-            <p><b>Thương hiệu:</b> {{$value->brand_name}}</p>
-            <p><b>Danh mục:</b> {{$value->category_name}}</p>
+            <p><b>{{ trans('home.tinhtrang')}}:</b> {{ trans('home.conhang')}}</p>
+            <p><b>{{ trans('home.dieukien')}}:</b> {{ trans('home.moi')}} </p>
+            <p><b>{{ trans('home.thuonghieu')}}:</b> {{$value->brand_name}}</p>
+            <p><b>{{ trans('home.danhmuc')}}:</b> 
+                @if(config('app.locale') != 'vi') 
+                    {{$value->category_name_en}}
+                @else
+                    {{$value->category_name}}
+                @endif
+            </p>
 
             <a href=""><img src="images/product-details/share.png" class="share img-responsive" alt="" /></a>
         </div>
@@ -65,9 +82,9 @@
     <!--category-tab-->
     <div class="col-sm-12">
         <ul class="nav nav-tabs">
-            <li class="active"><a href="#details" data-toggle="tab">Mô tả sản phẩm</a></li>
-            <li><a href="#companyprofile" data-toggle="tab">Chi tiết sản phẩm</a></li>
-            <li><a href="#reviews" data-toggle="tab">Đánh giá</a></li>
+            <li class="active"><a href="#details" data-toggle="tab">{{ trans('home.motasp')}}</a></li>
+            <li><a href="#companyprofile" data-toggle="tab">{{ trans('home.chitietsp')}}</a></li>
+            <li><a href="#reviews" data-toggle="tab">{{ trans('home.danhgia')}}</a></li>
         </ul>
     </div>
     <div class="tab-content">
@@ -116,7 +133,7 @@
 
 <div class="recommended_items">
     <!--recommended_items-->
-    <h2 class="title text-center">Sản phẩm liên quan</h2>
+    <h2 class="title text-center">{{ trans('home.sanphamlienquan')}}</h2>
 
     <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
 							<div class="carousel-inner">
@@ -133,7 +150,14 @@
                                                         <a href="{{URL::to('/chi-tiet-san-pham/'.$lienquan->product_id)}}">
                                                             <img src="{{URL::to('public/uploads/product/'.$lienquan->product_image)}}" alt="" />
                                                             <h2>{{number_format($lienquan->product_price).' '.'VND'}}</h2>
-                                                            <p>{{$lienquan->product_name}}</p>
+                                                            <!-- <p>{{$lienquan->product_name}}</p> -->
+                                                            <p>@if(config('app.locale') != 'vi') 
+                                                                    {{$lienquan->product_name_en}}
+                                                                @else
+                                                                    {{$lienquan->product_name}}
+                                                                @endif
+                                                            </p>
+
                                                         </a>
                                                        
                                                     </form>

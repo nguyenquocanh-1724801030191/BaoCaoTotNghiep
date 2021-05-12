@@ -5,7 +5,7 @@
     <!-- <div class="container"> -->
     <div class="breadcrumbs">
         <ol class="breadcrumb">
-            <li><a href="{{URL::to('/')}}">Home</a></li>
+            <!-- <li><a href="{{URL::to('/trang-chu')}}">{{ trans('home.home')}}</a></li> -->
             <li class="active">Giỏ hàng của bạn</li>
         </ol>
     </div>
@@ -24,14 +24,14 @@
             <table class="table table-condensed">
                 <thead>
                     <tr class="cart_menu">
-                        <td class="image" style="text-align: center">Hình ảnh</td>
-                        <td class="description" style="text-align: center">Tên sp</td>
-                        <td class="price" style="text-align: center">Giá</td>
-                        <td class="size" style="text-align: center; width:80px">Kích cỡ</td>
-                        <td class="quantity" style="text-align: center; width:80px">Số lượng</td>
+                        <td class="image" style="text-align: center">{{ trans('home.hinhanh')}}</td>
+                        <td class="description" style="text-align: center">{{ trans('home.tensanpham')}}</td>
+                        <td class="price" style="text-align: center">{{ trans('home.gia')}}</td>
+                        <!-- <td class="size" style="text-align: center; width:80px">Kích cỡ</td> -->
+                        <td class="quantity" style="text-align: center; width:80px">{{ trans('home.soluong')}}</td>
                         
-                        <td class="total" style="text-align: center">Tổng tiền</td>
-                        <td>Xóa</td>
+                        <td class="total" style="text-align: center">{{ trans('home.tongtien')}}</td>
+                        <td>{{ trans('home.xoa')}}</td>
                     </tr>
                 </thead>
 
@@ -54,21 +54,19 @@
                            
                         </td>
                         <td class="cart_price" >
-                            <p style="margin: 0 0 0px">{{number_format($cart['product_price'],0,',','.')}} </p>
+                            <center><p style="margin: 0 0 0px">{{number_format($cart['product_price'],0,',','.')}} </p></center>
                         </td>
                         <!-- <td class="cart_size">
                             <select class="product_size" >
                                     <option disabled style="text-aline:center">Chọn size</option>
-                                    <option selected value="1">39</option>
-                                    <option value="2">40</option>
-                                    <option value="3">41</option>
-                                    <option value="4">42</option>
+                                    <option selected value="">39</option>
+                                    <option value="">40</option>
+                                    <option value="">41</option>
+                                    <option value="">42</option>
                                    
 					        </select>  
                         </td>  -->
-                        <td class="cart_size">
-                        {{$cart['product_size']}}
-                        </td> 
+                        
                         <td class="cart_quantity">
                             <div class="cart_quantity_button">
 
@@ -80,59 +78,60 @@
                            
                         </td>
                         
-                        <td class="cart_total" style="font-size:18px; color:red">
-                            {{number_format($subtotal,0,',','.')}} VND
+                        <td class="cart_total" style="font-size:18px; color:#fe980f">
+                           <center> {{number_format($subtotal,0,',','.')}} VND</center>
                         </td>
                         <td class="cart_delete">
                             <a class="cart_quantity_delete" href="{{url('/del-product/'.$cart['session_id'])}}"><i
                                     class="fa fa-times"></i></a>
                         </td>
-                      
                     </tr>
-                    {{dd($cart)}}
+                   
 
                     @endforeach
                     <tr>
-                        <td style="width:121px"><input type="submit" value="Cập nhật giỏ hàng" name="update_qty"
+                        <td style="width:121px"><input type="submit" value="{{ trans('home.capnhatgiohang')}}" name="update_qty"
                                 class="btn btn-default check_out"></td>
-                        <td style="width:121px"><a class="btn btn-default check_out" href="{{url('/del-all-product')}}">Xóa tất cả</a></td>
+                        <td style="width:121px"><a class="btn btn-default check_out" href="{{url('/del-all-product')}}">{{ trans('home.xoatatca')}}</a></td>
                         <td>
                             @if(Session::get('customer_id'))
-                            <a class="btn btn-default check_out" href="{{url('/checkout')}}">Đặt hàng</a>
+                            <a class="btn btn-default check_out" href="{{url('/checkout')}}">{{ trans('home.dathang')}}</a>
                             @else
-                            <a class="btn btn-default check_out" href="{{url('/login-checkout')}}">Đặt hàng</a>
+                            <a class="btn btn-default check_out" href="{{url('/login-checkout')}}">{{ trans('home.dathang')}}</a>
                             @endif
                         </td>
                         <td>
                             @if(Session::get('coupon'))
-                            <a  class="btn btn-default check_out" href="{{url('/unset-coupon')}}">Xóa giảm giá</a>
+                            <a  class="btn btn-default check_out" href="{{url('/unset-coupon')}}">{{ trans('home.xoagiamgia')}}</a>
                             @endif
                         </td>
                        
                         <td style="font-size:15px" colspan=2>
                             <p>
-                            <li>Tổng tiền: <span>{{number_format($total,0,',','.')}} VND</span></li>
+                            <li>{{ trans('home.tongtien')}}: <span>{{number_format($total,0,',','.')}} VND</span></li>
                             </p>
                             @if(Session::get('coupon'))
                             <li>
                                 @foreach(Session::get('coupon') as $key => $cou)
                                 @if($cou['coupon_condition']==1)
-                                Giảm giá: {{$cou['coupon_number']}} %
+                                {{ trans('home.giamgia')}}: {{$cou['coupon_number']}} %
                                 <p>
                                     @php
                                     $total_coupon = ($total*$cou['coupon_number'])/100;
                                     echo '
                                 <p>
                             </li>   
-                            <li>Tổng giảm: <span>'.number_format($total_coupon,0,',','.').' VND</span></li>
+                            <li>
+                            Tổng giảm: 
+                            <span>'.number_format($total_coupon,0,',','.').' VND</span></li>
                             </p>';
                             @endphp
                             </p>
                             <p>
-                                <li>Tổng tiền đơn hàng: {{number_format($total-$total_coupon,0,',','.')}} VND</li>
+                                <li>{{ trans('home.tongtiendonhang')}}: {{number_format($total-$total_coupon,0,',','.')}} VND</li>
                             </p>
                             @elseif($cou['coupon_condition']==2)
-                            Giảm giá : {{number_format($cou['coupon_number'],0,',','.')}} VND
+                            {{ trans('home.giamgia')}}: {{number_format($cou['coupon_number'],0,',','.')}} VND
                             <p>
                                 @php
                                 $total_coupon = $total - $cou['coupon_number'];
@@ -140,7 +139,7 @@
                                 @endphp
                             </p>
                             <p>
-                                <li>Tổng tiền đơn hàng: {{number_format($total_coupon,0,',','.')}} VND</li>
+                                <li>{{ trans('home.tongtiendonhang')}}: {{number_format($total_coupon,0,',','.')}} VND</li>
                             </p>
                             @endif
                             @endforeach
@@ -171,9 +170,9 @@
             <td>
                 <form method="POST" action="{{url('/check-coupon')}}">
                     @csrf
-                    <input type="text" class="form-control" name="coupon" placeholder="Nhập mã giảm giá"><br>
+                    <input type="text" class="form-control" name="coupon" placeholder="{{ trans('home.nhapmagiamgia')}}"><br>
                     <input type="submit" class="btn btn-default check_coupon" name="check_coupon"
-                        value="Tính mã giảm giá">                       
+                        value="{{ trans('home.tinhmagiamgia')}}">                       
                 </form>
             </td>
            

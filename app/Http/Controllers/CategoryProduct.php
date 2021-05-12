@@ -33,6 +33,7 @@ class CategoryProduct extends Controller
         $this->AuthLogin();
         $data = array();
         $data['category_name'] = $request->category_product_name;
+        $data['category_name_en'] = $request->category_product_name_en;
         $data['category_desc'] = $request->category_product_desc;
         $data['category_status'] = $request->category_product_status;
 
@@ -65,6 +66,7 @@ class CategoryProduct extends Controller
         $this->AuthLogin();
         $data = array();
         $data['category_name'] = $request->category_product_name;
+        $data['category_name_en'] = $request->category_product_name_en;
         $data['category_desc'] = $request->category_product_desc;
         DB::table('tbl_category_product')->where('category_id',$category_product_id)->update($data);
         Session::put('message','Cập nhật danh mục sản phẩm thành công');

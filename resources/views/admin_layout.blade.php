@@ -112,7 +112,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <li>
                     <a class="active" href="{{URL::to('/dashboard')}}">
                         <i class="fa fa-dashboard"></i>
-                        <span>{{__('TongQuan')}}</span>
+                        <span>Thống kê</span>
                     </a>
                 </li>
                 <li class="sub-menu">
@@ -129,7 +129,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-book"></i>
-                        <span>{{__('DonHang')}}</span>
+                        <span>Đơn hàng</span>
                     </a>
                     <ul class="sub">
 						<li><a href="{{URL::to('manage-order')}}">Quản lý đơn hàng</a></li>
@@ -159,7 +159,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-book"></i>
-                        <span>{{__('Product portfolio')}}</span>
+                        <span>Danh mục sản phẩm</span>
                     </a>
                     <ul class="sub">
 						<li><a href="{{URL::to('add-category-product')}}">Thêm danh mục sản phẩm</a></li>
@@ -170,7 +170,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-book"></i>
-                        <span>{{__('Product brands')}}</span>
+                        <span>Thương hiệu sản phẩm</span>
                     </a>
                     <ul class="sub">
 						<li><a href="{{URL::to('add-brand-product')}}">Thêm thương hiệu sản phẩm</a></li>
@@ -181,7 +181,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-book"></i>
-                        <span>{{__('Product')}}</span>
+                        <span>Sản phẩm</span>
                     </a>
                     <ul class="sub">
 						<li><a href="{{URL::to('add-product')}}">Thêm sản phẩm</a></li>
@@ -202,11 +202,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		@yield('admin_content')   
 	</sectinon>
  <!-- footer -->
-		  <div class="footer">
+		  <!-- <div class="footer">
 			<div class="wthree-copyright">
 			  <p>Quản Lý Shop Giày Q & A | Design by Quoc Anh</p>
 			</div>
-		  </div>
+		  </div> -->
   <!-- / footer -->
 </section>
 <!--main content end-->
@@ -222,6 +222,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="{{asset('public/backend/js/datatables.min.js')}}"></script>
 <script src="{{asset('public/backend/js/morris.min.js')}}"></script>
 <script src="{{asset('public/backend/js/bootstrap-tagsinput.min.js')}}"></script>
+
+
 
 
 
@@ -271,7 +273,7 @@ $(document).ready(function(){
                 hideHover: 'auto',
                 xkey: 'period',
                 ykeys: ['order','sales','profit','quantity'],
-                labels: ['đơn hàng','doanh số','lợi nhuận','số lượng']
+                labels: ['đơn hàng','doanh số','lợi nhuận','số lượng sp ']
             
             });
 
@@ -413,7 +415,7 @@ $(document).ready(function(){
                 }
             });
         }); 
-    })
+    });
 
 
 </script>

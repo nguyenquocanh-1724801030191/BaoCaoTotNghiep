@@ -74,12 +74,9 @@ class CartController extends Controller
                 'product_id' => $data['cart_product_id'],
                 'product_image' => $data['cart_product_image'],
                 'product_qty' => $data['cart_product_qty'],
-                'product_price' => $data['cart_product_price'],
-                'product_size' => $request->size,
-                
+                'product_price' => $data['cart_product_price'],   
                 );
-                // return response()->json($cart);
-                dd($cart);
+               
                 Session::put('cart',$cart);
             }
         }else{
@@ -90,13 +87,11 @@ class CartController extends Controller
                 'product_image' => $data['cart_product_image'],
                 'product_qty' => $data['cart_product_qty'],
                 'product_price' => $data['cart_product_price'],
-                'product_size' => $request->size,
             );
-            // return response()->json($cart);
-            dd($cart);
+            
             Session::put('cart',$cart);
         }
-        dd($cart);
+        
         Session::save();
     } 
 

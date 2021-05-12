@@ -1519,7 +1519,7 @@ h2.title {
     padding: 3px 7px;
 }
 
-.breadcrumbs .breadcrumb li a:after {
+/* .breadcrumbs .breadcrumb li a:after {
     content: "";
     height: auto;
     width: auto;
@@ -1529,7 +1529,7 @@ h2.title {
     position: absolute;
     top: 11px;
     left: 48px;
-}
+} */
 
 .breadcrumbs .breadcrumb > li + li:before {
     content: " ";

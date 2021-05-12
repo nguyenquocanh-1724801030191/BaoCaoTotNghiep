@@ -22,7 +22,7 @@ class HomeController extends Controller
             app()->setLocale(Session::get('locale'));
         }
         $all_product = DB::table('tbl_product')->where('product_status','0')
-                        ->orderby('product_id' , 'desc')->paginate(15);
+                        ->orderby('product_id' , 'desc')->paginate(9);
 
         return view('pages.home')->with('category',$cate_product)->with('brand',$brand_product)
         ->with('all_product', $all_product)->with('slider',$slider);

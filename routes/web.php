@@ -170,7 +170,8 @@ Route::get('/vnpay-return',['as'=>'vnpayreturn','uses'=>'PaymentController@vnpay
 //Liên hệ 
 Route::get('/lien-he','ContactController@lien_he' );
 
-
+//Tính size
+Route::get('/tinh-size','ContactController@tinh_size' );
 
 
 Route::get('language/{locale}', function($locale){

@@ -7,7 +7,7 @@ use App\City;
 use App\Province;
 use App\Wards;
 use App\Feeship;
-use App\Slider;
+
 class DeliveryController extends Controller
 {
 

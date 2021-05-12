@@ -24,6 +24,8 @@ class AppServiceProvider extends ServiceProvider
                  app()->setLocale(Session::get('locale'));
              }
              $product = Product::get();
+            //  $category_product = Category::get();
+
             //  $multisp = 'sp_' . app()->getLocale();
             //  dd($multisp);
      });
