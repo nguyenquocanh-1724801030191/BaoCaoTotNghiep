@@ -44,7 +44,7 @@ class OrderController extends Controller
         return view('admin.view_order')->with(compact('order_details','customer','shipping','order_details','coupon_condition','coupon_number','order','order_status'));
     }
     public function manage_order(){
-    	$order = Order::orderby('created_at','DESC')->get();
+    	$order = Order::orderby('created_at','DESC')->paginate(10);
     	return view('admin.manage_order')->with(compact('order'));
     }
 	public function delete_order($order_code){
@@ -194,21 +194,43 @@ class OrderController extends Controller
 			font-family: DejaVu Sans;
 		}
 		.table-styling{
-			border:1px solid #000;
-			
+			// border:1px solid #000;
+			// font-family: Arial, Helvetica, sans-serif;
+			border-collapse: collapse;
+			width: 100%;
 			
 		}
+		.table-styling td, .table-styling th {
+			border: 1px solid #ddd;
+			padding: 4px;
+			border-collapse: collapse;
+			text-aline: center;
+		}
+
+		.table-styling tbody tr:nth-child(even){background-color: #f2f2f2; text-aline: center;}
+
 		.table-styling tbody tr td{
-		 border:1px solid #000;
-			
+			text-aline: center;
+			border-collapse: collapse;
+			// width: 100%;
+		}
+
+		.table-styling thead th{
+			padding-top: 8px;
+			padding-bottom: 8px;
+			background-color: #4CAF50;
+			color: white;
+			text-aline: center;
+			border-collapse: collapse;
+			// width: 100%;			
 		}
 		
 		</style>
-		<h1><center>Shop Giày Q & A</center></h1>
+		<h1><center style="color: red">Shop Giày Q & A</center></h1>
 		<p>Người đặt hàng:</p>
 		<table class="table-styling">
 		<thead>
-		<tr >
+		<tr>
 		<th>Tên khách đặt</th>
 		<th>Số điện thoại</th>
 		<th>Email</th>
@@ -218,9 +240,9 @@ class OrderController extends Controller
 
 		$output.='		
 		<tr>
-		<td>'.$customer->customer_name.'</td>
-		<td>'.$customer->customer_phone.'</td>
-		<td>'.$customer->customer_email.'</td>
+		<td><center>'.$customer->customer_name.'</center></td>
+		<td><center>'.$customer->customer_phone.'</center></td>
+		<td><center>'.$customer->customer_email.'</center></td>
 
 		</tr>';
 
@@ -245,11 +267,11 @@ class OrderController extends Controller
 
 		$output.='		
 		<tr>
-		<td>'.$shipping->shipping_name.'</td>
-		<td>'.$shipping->shipping_address.'</td>
-		<td>'.$shipping->shipping_phone.'</td>
-		<td>'.$shipping->shipping_email.'</td>
-		<td>'.$shipping->shipping_notes.'</td>
+		<td><center>'.$shipping->shipping_name.'</center></td>
+		<td><center>'.$shipping->shipping_address.'</center></td>
+		<td><center>'.$shipping->shipping_phone.'</center></td>
+		<td><center>'.$shipping->shipping_email.'</center></td>
+		<td><center>'.$shipping->shipping_notes.'</center></td>
 
 		</tr>';
 
@@ -260,13 +282,13 @@ class OrderController extends Controller
 		</table>
 
 		<p>Chi tiết đơn hàng: </p>
-		<table class="table-styling">
+		<table class="table-styling" >
 		<thead>
 		<tr>
 		<th>Tên sản phẩm</th>
 		<th>Số lượng</th>
 		<th>Giá sản phẩm</th>
-		<th>Thành tiền</th>
+		<th>Thành tiền</th>	
 		</tr>
 		</thead>
 		<tbody>';
@@ -286,10 +308,10 @@ class OrderController extends Controller
 
 			$output.='		
 			<tr>
-			<td>'.$product->product_name.'</td>
+			<td><center>'.$product->product_name.'</center></td>
 			<td><center>'.$product->product_sales_quantity.'</center></td>
-			<td>'.number_format($product->product_price,0,',','.').' VND'.'</td>
-			<td>'.number_format($subtotal,0,',','.').' VND'.'</td>
+			<td><center>'.number_format($product->product_price,0,',','.').' VND'.'</center></td>
+			<td><center>'.number_format($subtotal,0,',','.').' VND'.'</center></td>
 
 			</tr>';
 		}
@@ -302,8 +324,8 @@ class OrderController extends Controller
 		}
 
 		$output.= '<tr >
-		<td colspan="2">
-		<p>Tổng hóa đơn:'.number_format($total,0,',','.').' VND'.'</p>
+		<td colspan="5" >
+		<p>Tổng hóa đơn: '.number_format($total,0,',','.').' VND'.'</p>
 		<p>Giảm giá: '.$coupon_echo.'</p>
 		<p>Phí ship: '.number_format($product->product_feeship,0,',','.').' VND'.'</p>
 		<p>Tiền thanh toán : '.number_format($total_coupon + $product->product_feeship,0,',','.').' VND'.'</p>
@@ -319,8 +341,9 @@ class OrderController extends Controller
 		<thead>
 		<tr>
 		<th width="200px">Người lập phiếu</th>
-		<p>Ký tên</p>
+		<p style="margin-left: 70px">Ký tên</p>
 		<th width="800px">Người nhận</th>
+		<p style="float: right;margin-right: 70px">Ký tên</p>
 		</tr>
 		</thead>
 		<tbody>';

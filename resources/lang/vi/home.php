@@ -1,6 +1,6 @@
 <?php 
 return  [
-    'home' => 'Trang Chu',
+    'home' => 'Trang Chủ',
     'ngonngu'=> 'Ngôn ngữ',
     'payment' => 'Thanh toán',
     'login' => 'Đăng nhập',
@@ -44,7 +44,18 @@ return  [
     'conhang' =>'Còn hàng',
     'moi' =>'Mới 100%',
     'chonsizephuhop' =>'Chọn size phù hợp',
-    'tinhsize' =>'Tính kích cỡ giày'
+    'tinhsize' =>'Tính kích cỡ giày',
+    'thanhtoangiohang' => 'Thanh toán giỏ hàng',
+    'thongtinguihang' => 'Thông tin gửi hàng',
+    'hinhthucthanhtoan' => 'Chọn hình thức thanh toán',
+    'xacnhandonhang' => 'xác nhận đơn hàng',
+    'chuyenkhoan' => 'Chuyển khoản',
+    'tienmat' => 'Tiền mặt',
+    'chonthanhpho' => 'Chọn tỉnh thành phố',
+    'chonquanhuyen' => 'Chọn quận huyện',
+    'chonxaphuong' => 'Chọn xã phường',
+    'tinhphivanchuyen' => 'Tính phí vận chuyển',
+    'phivanchuyen' => 'Phí vận chuyển'
     
 
 ];

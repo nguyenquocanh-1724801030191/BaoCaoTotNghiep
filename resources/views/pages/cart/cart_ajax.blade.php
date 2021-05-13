@@ -6,7 +6,7 @@
     <div class="breadcrumbs">
         <ol class="breadcrumb">
             <!-- <li><a href="{{URL::to('/trang-chu')}}">{{ trans('home.home')}}</a></li> -->
-            <li class="active">Giỏ hàng của bạn</li>
+            <li class="active">{{ trans('home.giohangcuaban')}}</li>
         </ol>
     </div>
     @if(session()->has('message'))
@@ -82,8 +82,8 @@
                            <center> {{number_format($subtotal,0,',','.')}} VND</center>
                         </td>
                         <td class="cart_delete">
-                            <a class="cart_quantity_delete" href="{{url('/del-product/'.$cart['session_id'])}}"><i
-                                    class="fa fa-times"></i></a>
+                            <center><a class="cart_quantity_delete" href="{{url('/del-product/'.$cart['session_id'])}}"><i
+                                    class="fa fa-times"></i></a></center>
                         </td>
                     </tr>
                    
@@ -121,9 +121,9 @@
                                     echo '
                                 <p>
                             </li>   
-                            <li>
+                            <!-- <li>
                             Tổng giảm: 
-                            <span>'.number_format($total_coupon,0,',','.').' VND</span></li>
+                            <span>'.number_format($total_coupon,0,',','.').' VND</span></li> -->
                             </p>';
                             @endphp
                             </p>
@@ -154,9 +154,7 @@
                     <tr>
                         <td colspan="5">
                             <center>
-                                <?php
-									echo 'Giỏ hàng của bạn đang trống. Vui lòng thêm sản phẩm vào giỏ hàng'
-								?>
+                                {{ trans('home.giohangtrong')}}
                             </center>
                         </td>
                     </tr>

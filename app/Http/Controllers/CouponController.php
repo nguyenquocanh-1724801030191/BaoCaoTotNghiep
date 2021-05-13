@@ -37,7 +37,7 @@ class CouponController extends Controller
     }
     public function list_coupon(){
 		$today = Carbon::now('Asia/Ho_Chi_Minh')->format('d/m/Y');
-		$coupon = Coupon::orderby('coupon_id','DESC')->get();
+		$coupon = Coupon::orderby('coupon_id','DESC')->paginate(10);
     	// $coupon = Coupon::orderby('coupon_id','DESC')->get()->toArray();
 		// for($index = 0 ;$index<count($coupon);$index++){
 		// 	$date1 = Carbon::createFromFormat('d/m/Y', $coupon[$index]['coupon_date_end']);

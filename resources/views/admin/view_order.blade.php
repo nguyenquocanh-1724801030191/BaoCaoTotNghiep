@@ -211,7 +211,8 @@
                     </tr>
                 </tbody>
             </table>
-            <button><a target="_blank" href="{{url('/print-order/'.$details->order_code)}}">In đơn hàng</a></button>
+            <button class="btn btn-danger" style="color: white; margin: 10px; width: 20%; float: right;">
+            <a target="_blank" href="{{url('/print-order/'.$details->order_code)}}"><b style="color: white;">In đơn hàng</b></a></button>
         </div>
 
     </div>

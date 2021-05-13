@@ -72,7 +72,19 @@
                 </tbody>
             </table>
         </div>
-
+        <footer class="panel-footer">
+      <div class="row">
+        
+        <div class="col-sm-5 text-center">
+          <small class="text-muted inline m-t-sm m-b-sm">Hiện thị 10 đơn hàng trên 1 trang</small>
+        </div>
+        <div class="col-sm-7 text-right text-center-xs">                
+          <ul class="pagination pagination-sm m-t-none m-b-none">
+            {!!$order->links()!!}
+          </ul>
+        </div>
+      </div>
+    </footer>
     </div>
 </div>
 @endsection

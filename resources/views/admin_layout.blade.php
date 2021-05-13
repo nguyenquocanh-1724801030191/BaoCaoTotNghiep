@@ -342,6 +342,7 @@ $(document).ready(function(){
     $(document).ready(function(){
 
         fetch_delivery();
+
         function fetch_delivery(){
             var _token = $('input[name="_token"]').val();
              $.ajax({
@@ -415,7 +416,7 @@ $(document).ready(function(){
                 }
             });
         }); 
-    });
+    })              
 
 
 </script>

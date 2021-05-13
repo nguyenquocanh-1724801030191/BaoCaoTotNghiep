@@ -154,7 +154,7 @@ class CartController extends Controller
     public function check_coupon(Request $request){
         $today = Carbon::now('Asia/Ho_Chi_Minh')->format('d/m/Y');
         $data = $request->all();
-        $coupon = Coupon::where('coupon_code',$data['coupon'])->where('coupon_status',1)->where('coupon_date_end','>=',$today)->first();
+        $coupon = Coupon::where('coupon_code',$data['coupon'])->where('coupon_status',1)->where('coupon_date_end','>=',$today)->where('coupon_date_start', '<',$today)->where('coupon_time','>',0)->first();
         if($coupon){
             $count_coupon = $coupon->count();
             if($count_coupon>0){
@@ -185,7 +185,7 @@ class CartController extends Controller
 
         }else{
             Session::forget('coupon');
-            return redirect()->back()->with('error','Mã giảm giá không đúng, hoặc đã hết hạn');
+            return redirect()->back()->with('error','Mã giảm giá không đúng, chưa đến thời gian giảm giá hoặc đã hết hạn');
         }
     }   
 }

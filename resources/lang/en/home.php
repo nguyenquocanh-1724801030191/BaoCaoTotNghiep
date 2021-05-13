@@ -44,7 +44,18 @@ return [
     'conhang' =>'Stocking',
     'moi' =>'New 100%',
     'chonsizephuhop' =>'Choose the right size',
-    'tinhsize' =>'Calculate the shoe size'
+    'tinhsize' =>'Calculate the shoe size',
+    'thanhtoangiohang' => 'Payment cart',
+    'thongtinguihang' => 'Shipping information',
+    'hinhthucthanhtoan' => 'Choose a form of payment',
+    'xacnhandonhang' => 'Order confirmation',
+    'chuyenkhoan' => 'Transfer',
+    'tienmat' => 'Cash',
+    'chonthanhpho' => 'Select a city or province',
+    'chonquanhuyen' => 'Select district',
+    'chonxaphuong' => 'Choose a commune',
+    'tinhphivanchuyen' => 'Charge shipping',
+    'phivanchuyen' => 'shhiping fee'
 
     
 

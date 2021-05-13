@@ -60,4 +60,5 @@
                     </section>
 
             </div>
+</div>
 @endsection
