@@ -46,23 +46,7 @@
                     
                     
                 </span>
-                <!-- @if($value->product_size == NULL)
-                @else
-                <span>
-                    <label>Size</label>
-                    <select>
-                    @php
-                        $sizes = $value->product_size;
-                        $product_size = explode(",",$sizes); 
-                    @endphp
-                    @foreach($product_size as $size){
-                        <option value ="{{$sizes}}">{{$sizes}}</option>
-                       
-                        }
-                    @endforeach
-                    </select>
-                </span>
-                @endif -->
+                
                 <input type="button" value="{{ trans('home.themgiohang')}}" class="btn btn-primary btn-sm add-to-cart" data-id_product="{{$value->product_id}}" name="add-to-cart">
                 
             </form>
