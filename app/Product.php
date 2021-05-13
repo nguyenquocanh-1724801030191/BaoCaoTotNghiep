@@ -13,4 +13,7 @@ class Product extends Model
     ];
     protected $primaryKey = 'product_id';
  	protected $table = 'tbl_product';
+     public function configs(){
+         return $this->hasMany('ProductSize', 'product_id','product_id');
+     }
 }

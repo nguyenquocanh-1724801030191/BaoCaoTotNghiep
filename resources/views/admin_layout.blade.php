@@ -412,7 +412,7 @@ $(document).ready(function(){
                 method: 'POST',
                 data:{action:action,ma_id:ma_id,_token:_token},
                 success:function(data){
-                   $('#'+result).html(data);     
+                   $('#'+ result).html(data);     
                 }
             });
         }); 

@@ -68,15 +68,18 @@
             <!--header-middle-->
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-4">
+                    <!-- <div class="col-sm-4">
                         <div class="logo pull-left">
-                            <a href="index.html"></a>
+                            <a href="{{URL::to('/trang-chu')}}"><img src="{{asset('public/frontend/images/logo.png')}}" alt="" /></a>
                         </div>
                         <div class="btn-group pull-right">
 
                         </div>
-                    </div>
-                    <div class="col-sm-8">
+                    </div> -->
+                    <div class="col-sm-12">
+                        <div class="shop-menu pull-left">
+                            <a href="{{URL::to('/trang-chu')}}"><img src="{{asset('public/frontend/images/logo1.png')}}" alt="" /></a>
+                        </div>
                         <div class="shop-menu pull-right">
                             <ul class="nav navbar-nav">
 

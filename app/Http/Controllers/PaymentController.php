@@ -13,6 +13,11 @@ use App\OrderDetails;
 use App\Shipping;
 use Carbon\Carbon;
 use App\Slider;
+use App\Customer;
+use Mail;
+use App\Feeship;
+use App\Coupon;
+
 class PaymentController extends Controller
 {
     public function payment_onlines(Request $request){
@@ -81,6 +86,7 @@ class PaymentController extends Controller
         if ($request->vnp_ResponseCode == '00') {
             
             $data = Session::get('thanhtoan');
+
             
             // dd(Session::get('shipping_session'));
             $shipping =  new Shipping();
@@ -125,7 +131,6 @@ class PaymentController extends Controller
             Session::forget('fee');
             Session::forget('cart');
             Session::forget('shipping_session');
-
 
             $slider = Slider::orderBy('slider_id','DESC')->where('slider_status','0')->take(4)->get();
             $cate_product = DB::table('tbl_category_product')->where('category_status','0')->orderby('category_id' , 'desc')->get();

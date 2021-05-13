@@ -13,7 +13,7 @@
 		<div class="col-md-12" >
 
 			<p style="text-align: center;color: #fff">Đây là email tự động. Quý khách vui lòng không trả lời email này.</p>
-			<div class="row" style="background: cadetblue;padding: 15px">
+			<div class="row" style="background: burlywood;padding: 15px">
 
 				
 				<div class="col-md-6" style="text-align: center;color: #fff;font-weight: bold;font-size: 30px">
@@ -85,7 +85,8 @@
 
 					<h4 style="color: #000;text-transform: uppercase;">Sản phẩm đã đặt</h4>
 
-					<table class="table table-striped" style="border:1px">
+					<table class="table table-striped" style="border:1px; border-collapse: collapse;
+			width: 100%;">
 						<thead>
 							<tr>
 								<th>Sản phẩm</th>
@@ -110,10 +111,10 @@
 							@endphp	
 
 							<tr>
-								<td>{{$cart['product_name']}}</td>
-								<td>{{number_format($cart['product_price'],0,',','.')}} VND</td>
+								<td align="center">{{$cart['product_name']}}</td>
+								<td align="center">{{number_format($cart['product_price'],0,',','.')}} VND</td>
 								<td align="center">{{$cart['product_qty']}}</td>
-								<td>{{number_format($sub_total,0,',','.')}} VND</td>
+								<td align="center">{{number_format($sub_total,0,',','.')}} VND</td>
 							</tr>
 							@endforeach
 
